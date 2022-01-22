@@ -9,6 +9,7 @@ export const schema = gql`
 
   type Query {
     tabs: [Tab!]! @requireAuth
+    tab(id: String!): Tab @requireAuth
   }
 
   input CreateTabInput {
