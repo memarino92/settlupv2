@@ -1,8 +1,8 @@
 import { render, screen } from '@redwoodjs/testing/web'
-import { Loading, Empty, Failure, Success } from './TabsCellCell'
-import { standard } from './TabsCellCell.mock'
+import { Loading, Empty, Failure, Success } from './TabsCell'
+import { standard } from './TabsCell.mock'
 
-describe('TabsCellCell', () => {
+describe('TabsCell', () => {
   it('renders Loading successfully', () => {
     expect(() => {
       render(<Loading />)
@@ -29,7 +29,7 @@ describe('TabsCellCell', () => {
 
   it('renders Success successfully', async () => {
     expect(() => {
-      render(<Success tabsCell={standard().tabsCell} />)
+      render(<Success tabs={standard().tabs} />)
     }).not.toThrow()
   })
 })

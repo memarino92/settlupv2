@@ -1,9 +1,10 @@
-import type { FindTabsCellQuery } from 'types/graphql'
+import type { TabsQuery } from 'types/graphql'
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 
+
 export const QUERY = gql`
-  query FindTabsCellQuery($id: Int!) {
-    tabsCell: tabsCell(id: $id) {
+  query TabsQuery {
+    tabs {
       id
     }
   }
@@ -17,6 +18,12 @@ export const Failure = ({ error }: CellFailureProps) => (
   <div style={{ color: 'red' }}>Error: {error.message}</div>
 )
 
-export const Success = ({ tabsCell }: CellSuccessProps<FindTabsCellQuery>) => {
-  return <div>{JSON.stringify(tabsCell)}</div>
+export const Success = ({ tabs }: CellSuccessProps<TabsQuery>) => {
+  return (
+    <ul>
+      {tabs.map((item) => {
+        return <li key={item.id}>{JSON.stringify(item)}</li>
+      })}
+    </ul>
+  )
 }
