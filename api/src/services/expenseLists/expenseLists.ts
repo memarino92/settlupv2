@@ -1,13 +1,18 @@
 import type { Prisma } from '@prisma/client'
 import type { ResolverArgs } from '@redwoodjs/graphql-server'
+import { requireAuth } from 'src/lib/auth'
 
 import { db } from 'src/lib/db'
 
-export const expenseLists = () => {
-  return db.expenseList.findMany()
+export const expenseLists = ({ tabId }) => {
+  requireAuth({ roles: [] })
+  return db.expenseList.findMany({
+    where: { tabId },
+  })
 }
 
 export const expenseList = ({ id }: Prisma.ExpenseListWhereUniqueInput) => {
+  requireAuth({ roles: [] })
   return db.expenseList.findUnique({
     where: { id },
   })

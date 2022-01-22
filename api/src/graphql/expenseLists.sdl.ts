@@ -11,7 +11,8 @@ export const schema = gql`
   }
 
   type Query {
-    expenseLists: [ExpenseList!]! @requireAuth
+    expenseLists(tabId: String!): [ExpenseList!]! @requireAuth
+    expenseList(id: String!): ExpenseList @requireAuth
   }
 
   input CreateExpenseListInput {
@@ -24,5 +25,9 @@ export const schema = gql`
     name: String
     tabId: String
     userId: Int
+  }
+
+  type Mutation {
+    createExpenseList(input: CreateExpenseListInput!): ExpenseList! @requireAuth
   }
 `
