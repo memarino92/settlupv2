@@ -5,7 +5,7 @@ import { requireAuth } from 'src/lib/auth'
 import { db } from 'src/lib/db'
 
 export const tabs = () => {
-  requireAuth({ roles: [] })
+  // requireAuth({ roles: [] })
   const currentUserId = context.currentUser.id
   return db.tab.findMany({
     where: { users: { some: { id: currentUserId } } },

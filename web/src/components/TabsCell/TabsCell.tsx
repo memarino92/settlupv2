@@ -1,11 +1,19 @@
 import type { TabsQuery } from 'types/graphql'
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 
-
 export const QUERY = gql`
   query TabsQuery {
     tabs {
       id
+      expenseLists {
+        id
+        name
+        expenses {
+          id
+          name
+          amount
+        }
+      }
     }
   }
 `
