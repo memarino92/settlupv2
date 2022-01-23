@@ -6,7 +6,7 @@ import { db } from 'src/lib/db'
 
 export const users = () => {
   requireAuth({ roles: 'admin' })
-  return db.user.findMany()
+  return db.user.findMany({ orderBy: { id: 'asc' } })
 }
 
 export const user = ({ id }: Prisma.UserWhereUniqueInput) => {
