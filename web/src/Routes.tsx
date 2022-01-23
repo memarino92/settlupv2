@@ -17,6 +17,9 @@ const Routes = () => {
         <Private unauthenticated="login">
           <Route path="/" page={HomePage} name="home" />
         </Private>
+        <Private unauthenticated="home" role="admin">
+          <Route path="/admin" page={AdminPage} name="admin" />
+        </Private>
       </Set>
       <Route path="/login" page={LoginPage} name="login" />
       <Route path="/signup" page={SignupPage} name="signup" />
