@@ -7,7 +7,7 @@ type AppLayoutProps = {
 }
 
 const AppLayout = ({ children }: AppLayoutProps) => {
-  const { logOut, isAuthenticated, currentUser } = useAuth()
+  const { logOut, isAuthenticated, currentUser, hasRole } = useAuth()
   return (
     <>
       <MetaTags
@@ -27,6 +27,13 @@ const AppLayout = ({ children }: AppLayoutProps) => {
         </h1>
         <nav>
           <ul>
+            <li>
+              {hasRole('admin') && (
+                <button>
+                  <Link to={routes.admin()}>Admin Page</Link>
+                </button>
+              )}
+            </li>
             <li>
               {!isAuthenticated && (
                 <button>
