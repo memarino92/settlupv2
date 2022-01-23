@@ -14,7 +14,8 @@ export const schema = gql`
 
   input CreateTabInput {
     name: String!
-    expenseListNames: [String!]
+    expenseListOneName: String!
+    expenseListTwoName: String!
   }
 
   input UpdateTabInput {

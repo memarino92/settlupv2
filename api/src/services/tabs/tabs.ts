@@ -18,13 +18,25 @@ export const tab = ({ id }: Prisma.TabWhereUniqueInput) => {
   })
 }
 
-export const createTab = ({ data }) => {
-  const { name } = data
+export const createTab = ({ input }) => {
   const currentUserId = context.currentUser.id
+  const { name, expenseListOneName, expenseListTwoName } = input
   return db.tab.create({
     data: {
       name: name,
-      users: { connect: { id: currentUserId } },
+      users: {
+        connect: {
+          id: currentUserId,
+        },
+      },
+      expenseLists: {
+        createMany: {
+          data: [
+            { userId: currentUserId, name: expenseListOneName },
+            { userId: currentUserId, name: expenseListTwoName },
+          ],
+        },
+      },
     },
   })
 }
