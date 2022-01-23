@@ -2,6 +2,7 @@ import Tab from 'src/components/Tab'
 import type { TabsQuery } from 'types/graphql'
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 import TabForm from '../TabForm/TabForm'
+import { useAuth } from '@redwoodjs/auth'
 
 export const QUERY = gql`
   query TabsQuery {
@@ -29,9 +30,15 @@ export const Empty = () => (
   </div>
 )
 
-export const Failure = ({ error }: CellFailureProps) => (
-  <div style={{ color: 'red' }}>Error: {error.message}</div>
-)
+export const Failure = ({ error }: CellFailureProps) => {
+  const { hasRole } = useAuth()
+
+  return (
+    hasRole('user') && (
+      <div style={{ color: 'red' }}>Error: {error.message}</div>
+    )
+  )
+}
 
 export const Success = ({ tabs }: CellSuccessProps<TabsQuery>) => {
   return (
