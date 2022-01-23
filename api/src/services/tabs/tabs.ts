@@ -18,6 +18,17 @@ export const tab = ({ id }: Prisma.TabWhereUniqueInput) => {
   })
 }
 
+export const createTab = ({ data }) => {
+  const { name } = data
+  const currentUserId = context.currentUser.id
+  return db.tab.create({
+    data: {
+      name: name,
+      users: { connect: { id: currentUserId } },
+    },
+  })
+}
+
 export const Tab = {
   expenseLists: (_obj, { root }: ResolverArgs<ReturnType<typeof tab>>) =>
     db.tab.findUnique({ where: { id: root.id } }).expenseLists(),

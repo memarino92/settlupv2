@@ -1,4 +1,5 @@
 import { useMutation } from '@redwoodjs/web'
+import { QUERY as TabsQuery } from 'src/components/TabsCell'
 
 const DELETE_EXPENSE_MUTATION = gql`
   mutation DeleteExpenseMutation($id: String!) {
@@ -17,10 +18,12 @@ const LOCALE_CONFIG = [
 ]
 
 const Expense = ({ expense }) => {
-  const [deleteExpense] = useMutation(DELETE_EXPENSE_MUTATION)
+  const [deleteExpense] = useMutation(DELETE_EXPENSE_MUTATION, {
+    refetchQueries: [TabsQuery],
+  })
 
-  const handleClick = () => {
-    deleteExpense(expense.id)
+  const handleClick = (id) => {
+    deleteExpense({ variables: { id } })
   }
 
   return (
@@ -28,7 +31,7 @@ const Expense = ({ expense }) => {
       <p>
         {expense.name} - ${expense.amount.toLocaleString(...LOCALE_CONFIG)}
       </p>
-      <button onClick={handleClick}>Remove</button>
+      <button onClick={() => handleClick(expense.id)}>Remove</button>
     </div>
   )
 }

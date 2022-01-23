@@ -8,6 +8,7 @@ import {
   TextField,
   useForm,
 } from '@redwoodjs/forms'
+import { QUERY as TabsQuery } from 'src/components/TabsCell'
 
 const CREATE_EXPENSE_MUTATION = gql`
   mutation CreateExpenseMutation($input: CreateExpenseInput!) {
@@ -21,6 +22,7 @@ const ExpenseForm = ({ expenseListId }) => {
   const formMethods = useForm()
 
   const [createExpense] = useMutation(CREATE_EXPENSE_MUTATION, {
+    refetchQueries: [TabsQuery],
     onCompleted: () => {
       toast.success('Expense created')
       formMethods.reset()

@@ -18,6 +18,12 @@ export const expenseList = ({ id }: Prisma.ExpenseListWhereUniqueInput) => {
   })
 }
 
+export const createExpenseList = (data) => {
+  return db.expenseList.create({
+    data: data,
+  })
+}
+
 export const ExpenseList = {
   expenses: (_obj, { root }: ResolverArgs<ReturnType<typeof expenseList>>) =>
     db.expenseList.findUnique({ where: { id: root.id } }).expenses(),

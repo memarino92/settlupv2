@@ -1,3 +1,4 @@
+import Tab from 'src/components/Tab'
 import type { TabsQuery } from 'types/graphql'
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 
@@ -5,6 +6,7 @@ export const QUERY = gql`
   query TabsQuery {
     tabs {
       id
+      name
       expenseLists {
         id
         name
@@ -29,8 +31,8 @@ export const Failure = ({ error }: CellFailureProps) => (
 export const Success = ({ tabs }: CellSuccessProps<TabsQuery>) => {
   return (
     <ul>
-      {tabs.map((item) => {
-        return <li key={item.id}>{JSON.stringify(item)}</li>
+      {tabs.map((tab) => {
+        return <Tab key={tab.id} tab={tab} />
       })}
     </ul>
   )

@@ -13,10 +13,15 @@ export const schema = gql`
   }
 
   input CreateTabInput {
-    name: String
+    name: String!
+    expenseListNames: [String!]
   }
 
   input UpdateTabInput {
     name: String
+  }
+
+  type Mutation {
+    createTab(input: CreateTabInput): Tab! @requireAuth
   }
 `
