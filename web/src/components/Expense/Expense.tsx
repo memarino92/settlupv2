@@ -17,7 +17,7 @@ const LOCALE_CONFIG = [
   },
 ]
 
-const Expense = ({ expense }) => {
+const Expense = ({ expense, index }) => {
   const [deleteExpense] = useMutation(DELETE_EXPENSE_MUTATION, {
     refetchQueries: [TabsQuery],
   })
@@ -27,12 +27,21 @@ const Expense = ({ expense }) => {
   }
 
   return (
-    <div className="mt-1 flex flex-row justify-between relative bg-gray-200 p-2 rounded-lg max-w-md">
-      <p>
-        {expense.name} - ${expense.amount.toLocaleString(...LOCALE_CONFIG)}
-      </p>
-      <button onClick={() => handleClick(expense.id)}>Remove</button>
-    </div>
+    <tr>
+      <th className="text-center">{index + 1}</th>
+      <td>{expense.name}</td>
+      <td className="text-center">
+        {`$${expense.amount.toLocaleString(...LOCALE_CONFIG)}`}
+      </td>
+      <td className="text-center">
+        <button
+          className="btn btn-xs btn-secondary btn-outline"
+          onClick={() => handleClick(expense.id)}
+        >
+          Remove
+        </button>
+      </td>
+    </tr>
   )
 }
 
