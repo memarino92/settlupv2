@@ -5,7 +5,7 @@ const ResultCard = ({
   expenseListTwoName,
 }) => {
   return (
-    <div className="stats mb-8">
+    <div className="stats mb-8  drop-shadow-xl">
       <div className="stat bg-primary text-center">
         <h2 className="prose text-neutral-content stat-value">SettlUp!</h2>
         {totalOne < totalTwo ? (

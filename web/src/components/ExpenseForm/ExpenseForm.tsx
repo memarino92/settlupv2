@@ -75,7 +75,9 @@ const ExpenseForm = ({ expenseListId }) => {
             <FieldError name="amount" className="text-red-500 text-xs italic" />
           </div>
           <div className="flex flex-col justify-end w-1/5 px-3 mb-6 self-stretch">
-            <Submit className="btn btn-primary btn-circle">+</Submit>
+            <Submit className="inline-flex items-center btn btn-primary text-4xl font-extrabold text">
+              +
+            </Submit>
           </div>
         </div>
       </Form>
