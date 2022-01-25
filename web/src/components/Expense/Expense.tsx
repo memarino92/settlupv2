@@ -27,7 +27,7 @@ const Expense = ({ expense, index }) => {
   }
 
   return (
-    <tr>
+    <tr className="prose">
       <th className="text-center">{index + 1}</th>
       <td>{expense.name}</td>
       <td className="text-center">

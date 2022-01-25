@@ -39,47 +39,45 @@ const ExpenseForm = ({ expenseListId }) => {
   }
 
   return (
-    <div className="w-full max-w-full">
-      <Form
-        onSubmit={onSubmit}
-        className="flex flex-nowrap align-middle justify-evenly px-2 p-2 mb-4"
-        formMethods={formMethods}
-      >
-        <div className="m-2 w-2/4">
-          <Label
-            name="Name"
-            className="block text-gray-700 text-sm font-bold mb-2"
-            errorClassName="text-red-500 text-sm font-bold"
-          >
-            Name
-          </Label>
-          <TextField
-            name="name"
-            validation={{ required: true }}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            errorClassName="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-          />
-          <FieldError name="name" className="text-red-500 text-xs italic" />
+    <div className="flex flex-nowrap w-full">
+      <Form onSubmit={onSubmit} className="" formMethods={formMethods}>
+        <div className="flex flex-nowrap items-center w-full">
+          <div className="w-3/5 px-3 mb-6">
+            <Label
+              name="Name"
+              className="label"
+              errorClassName="text-red-500 text-sm font-bold"
+            >
+              Name
+            </Label>
+            <TextField
+              name="name"
+              validation={{ required: true }}
+              className="input input-bordered w-full"
+              errorClassName="input input-error w-full focus:outline-none focus:shadow-outline"
+            />
+            <FieldError name="name" className="text-red-500 text-xs italic" />
+          </div>
+          <div className="w-1/5 px-3 mb-6">
+            <Label
+              name="Amount"
+              className="label"
+              errorClassName="text-red-500 text-sm font-bold"
+            >
+              Amount
+            </Label>
+            <TextField
+              name="amount"
+              validation={{ required: true }}
+              className="input input-bordered w-full focus:outline-none focus:shadow-outline"
+              errorClassName="input input-error w-full focus:outline-none focus:shadow-outline"
+            />
+            <FieldError name="amount" className="text-red-500 text-xs italic" />
+          </div>
+          <div className="flex flex-col justify-end w-1/5 px-3 mb-6 self-stretch">
+            <Submit className="btn btn-primary btn-circle">+</Submit>
+          </div>
         </div>
-        <div className="m-2 w-1/4">
-          <Label
-            name="Amount"
-            className="block text-gray-700 text-sm font-bold mb-2"
-            errorClassName="text-red-500 text-sm font-bold"
-          >
-            Amount
-          </Label>
-          <TextField
-            name="amount"
-            validation={{ required: true }}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            errorClassName="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-          />
-          <FieldError name="amount" className="text-red-500 text-xs italic" />
-        </div>
-        <Submit className="bg-white text-blue-500 text-4xl font-bold  border border-blue-500 rounded-full hover:text-white hover:bg-blue-500">
-          +
-        </Submit>
       </Form>
     </div>
   )

@@ -1,14 +1,13 @@
-# Redwood
+# SettlUp
 
-> **NOTICE:** RedwoodJS is very close to a stable version 1.0. In the last two years,
-> the project has matured significantly and is already used in production by a number
-> of startups. We intend to have a 1.0 release candidate before the end of 2021 and
-> to release a truly production-ready 1.0 in early 2022.
+SettleUp is a tool designed to make splitting shared expenses quick and painless.
 
-## Getting Started
-- [Tutorial](https://redwoodjs.com/tutorial/welcome-to-redwood): getting started and complete overview guide.
-- [Docs](https://redwoodjs.com/docs/introduction): using the Redwood Router, handling assets and files, list of command-line tools, and more.
-- [Redwood Community](https://community.redwoodjs.com): get help, share tips and tricks, and collaborate on everything about RedwoodJS.
+Use it anonymously as a calculator and then create an account to save your work!
+
+Sign in, link your Venmo? Paypal? Cashapp? account, and create a tab between you and a friend. Enter your expenses on one side, and your friend will do the same. When the time comes to split the bills, just click the button that says SettlUp! Your friend will be able to approve or deny the request and the funds will be transferred automatically! You'll see the SettleUp transaction in both expense lists, and all transactions up tothat point will be marked as settled.
+
+
+SettleUp is built with [RedwoodJs.](https://redwoodjs.com) Run your own instance by cloning this repository and running the two commands below.
 
 ### Setup
 

@@ -3,18 +3,20 @@ import ExpenseList from '../ExpenseList/ExpenseList'
 
 const ListCard = ({ expenseList, total }) => {
   return (
-    <div className="bg-white shadow-md rounded px-2 p-2 m-4 max-w-md">
-      <h2 className="text-xl">{expenseList.name}</h2>
-      <ExpenseForm expenseListId={expenseList.id} />
-      <ExpenseList expenseList={expenseList} />
-      <div>
-        <h2>
-          Total: $
-          {total.toLocaleString('en-US', {
-            maximumFractionDigits: 2,
-            minimumFractionDigits: 2,
-          })}
-        </h2>
+    <div className="card card-bordered flex justify-center items-center m-4 p-4 shadow-xl">
+      <h2 className="card-title">{expenseList.name}</h2>
+      <div className="card-body">
+        <ExpenseForm expenseListId={expenseList.id} />
+        <ExpenseList expenseList={expenseList} />
+        <div>
+          <h2 className="prose prose-xl mt-4 text-center">
+            Total: $
+            {total.toLocaleString('en-US', {
+              maximumFractionDigits: 2,
+              minimumFractionDigits: 2,
+            })}
+          </h2>
+        </div>
       </div>
     </div>
   )
