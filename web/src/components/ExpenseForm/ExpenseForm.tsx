@@ -35,7 +35,17 @@ const ExpenseForm = ({ expenseListId }) => {
 
   const onSubmit = (input) => {
     input.amount = +input.amount
-    createExpense({ variables: { input: { expenseListId, ...input } } })
+    createExpense({
+      variables: { input: { expenseListId, ...input } },
+      optimisticResponse: {
+        createExpense: {
+          id: 'temp-id',
+          __typename: 'Todo',
+          expenseListId: expenseListId,
+          ...input,
+        },
+      },
+    })
   }
 
   return (
