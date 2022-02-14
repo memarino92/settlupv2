@@ -34,12 +34,14 @@ const Expense = ({ expense, index }) => {
         {`$${expense.amount.toLocaleString(...LOCALE_CONFIG)}`}
       </td>
       <td className="text-center">
-        <button
-          className="btn btn-xs btn-secondary btn-outline"
-          onClick={() => handleClick(expense.id)}
-        >
-          Remove
-        </button>
+        {!expense.isSettled && (
+          <button
+            className="btn btn-xs btn-secondary btn-outline"
+            onClick={() => handleClick(expense.id)}
+          >
+            Remove
+          </button>
+        )}
       </td>
     </tr>
   )

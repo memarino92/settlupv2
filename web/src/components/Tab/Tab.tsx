@@ -4,10 +4,16 @@ import ResultCard from '../ResultCard/ResultCard'
 const Tab = ({ tab }) => {
   const { expenseLists } = tab
   const totalOne = expenseLists[0]
-    ? expenseLists[0].expenses.reduce((a, b) => a + b.amount, 0)
+    ? expenseLists[0].expenses.reduce(
+        (a, b) => a + (b.isSettled ? 0 : b.amount),
+        0
+      )
     : 0
   const totalTwo = expenseLists[1]
-    ? expenseLists[1].expenses.reduce((a, b) => a + b.amount, 0)
+    ? expenseLists[1].expenses.reduce(
+        (a, b) => a + (b.isSettled ? 0 : b.amount),
+        0
+      )
     : 0
   return (
     <div className="card flex justify-center items-center p-4">

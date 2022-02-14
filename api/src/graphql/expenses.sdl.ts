@@ -6,6 +6,7 @@ export const schema = gql`
     createdAt: DateTime!
     expenseList: ExpenseList!
     expenseListId: String!
+    isSettled: Boolean!
   }
 
   type Query {

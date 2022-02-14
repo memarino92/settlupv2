@@ -16,6 +16,7 @@ export const QUERY = gql`
           id
           name
           amount
+          isSettled
         }
       }
     }
