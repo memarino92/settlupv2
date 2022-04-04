@@ -2,25 +2,10 @@
 
 SettleUp is a tool designed to make splitting shared expenses quick and painless.
 
-Use it anonymously as a calculator and then create an account to save your work!
+![Screenshot of SettlUp.app](https://res.cloudinary.com/mmarino/image/upload/v1649044062/settlupscreenshot_wkdbdi.png)
 
-Sign in, link your Venmo? Paypal? Cashapp? account, and create a tab between you and a friend. Enter your expenses on one side, and your friend will do the same. When the time comes to split the bills, just click the button that says SettlUp! Your friend will be able to approve or deny the request and the funds will be transferred automatically! You'll see the SettleUp transaction in both expense lists, and all transactions up tothat point will be marked as settled.
+Create an account on [SettlUp.app](https://settlup.app) to get started!
 
+SettlUp was born out of necessity - initially written just for my fiancée and I to split bills and other expenses, there never seemed to be a good way to keep track of it all. Originally called "Split-the-diff", it was developed as a front-end-only app that was more calculator-like, and more than a little uglier. Once I started re-writing my original app RedwoodJS seemed like the perfect choice because of its excellent database support, powered by Prisma - not to mention the tight integration with some of my favorite hosting providers, CSS utilities, and a built-in, self-hosted authentication system.
 
-SettleUp is built with [RedwoodJs.](https://redwoodjs.com) Run your own instance by cloning this repository and running the two commands below.
-
-### Setup
-
-We use Yarn as our package manager. To get the dependencies installed, just do this in the root directory:
-
-```terminal
-yarn install
-```
-
-### Fire it up
-
-```terminal
-yarn redwood dev
-```
-
-Your browser should open automatically to `http://localhost:8910` to see the web app. Lambda functions run on `http://localhost:8911` and are also proxied to `http://localhost:8910/.redwood/functions/*`.
+Currently, users can sign up, create a "tab" for two people, and enter in multiple expenses for both parties. Once entered, the SettlUp will let you know who owes whom what to make things even. Ever a work in progress, I intend to make it so that users invite other users to a tab, only enter their own expenses, approve requests to settle and integrate with some form of money sending (originally I wanted to use Venmo but looks like they closed their API some time ago). If you are interested in running SettlUp yourself and need some help getting it set up, please let me know! You can find me on twitter at [@mmarino](https://twitter.com/mmarino92) or in the [RedwoodJS Discord](http://discord.gg/redwoodjs).
