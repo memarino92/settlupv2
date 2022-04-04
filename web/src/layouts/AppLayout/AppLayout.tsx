@@ -43,7 +43,10 @@ const AppLayout = ({ children }: AppLayoutProps) => {
       </header>
       {children}
       <footer className="footer footer-center bg-primary text-neutral-content rounded-t">
-        &copy; {new Date().getFullYear()} Michael Marino
+        &copy; {new Date().getFullYear()} Michael Marino <br />
+        <a href="https://github.com/memarino92/settlupv2">
+          View the Source on GitHub
+        </a>
       </footer>
     </>
   )
