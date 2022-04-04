@@ -13,10 +13,10 @@
     ]
   },
   "dependencies": {
-    "@redwoodjs/auth": "0.42.1",
-    "@redwoodjs/forms": "0.42.1",
-    "@redwoodjs/router": "0.42.1",
-    "@redwoodjs/web": "0.42.1",
+    "@redwoodjs/auth": "^1.0.0-rc.final.4",
+    "@redwoodjs/forms": "^1.0.0-rc.final.4",
+    "@redwoodjs/router": "^1.0.0-rc.final.4",
+    "@redwoodjs/web": "^1.0.0-rc.final.4",
     "daisyui": "^1.25.3",
     "prop-types": "15.8.1",
     "react": "17.0.2",
