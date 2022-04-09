@@ -16,7 +16,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '16.x'
-      - name: Cypress run
+      - name: E2E Tests
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
         uses: cypress-io/github-action@v2
