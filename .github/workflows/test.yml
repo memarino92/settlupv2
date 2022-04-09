@@ -16,6 +16,12 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '16.x'
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Unit tests
+        env:
+          TEST_DATABASE_URL: ${{ secrets.TEST_DATABASE_URL }}
+        run: yarn rw test --no-watch
       - name: E2E Tests
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
