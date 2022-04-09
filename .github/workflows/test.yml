@@ -18,7 +18,7 @@ jobs:
           node-version: '16.x'
       - name: Cypress run
         env:
-          TEST_DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
         uses: cypress-io/github-action@v2
         with:
           build: yarn rw build
