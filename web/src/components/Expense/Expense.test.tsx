@@ -11,7 +11,13 @@ const expense = {
 describe('Expense', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<Expense index={1} expense={expense}/>)
+      render(
+        <table>
+          <tbody>
+          <Expense index={1} expense={expense} />
+          </tbody>
+        </table>
+      )
     }).not.toThrow()
   })
 })
