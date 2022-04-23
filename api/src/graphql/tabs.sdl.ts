@@ -22,7 +22,12 @@ export const schema = gql`
     name: String
   }
 
+  input MarkTabAsSettledInput {
+    id: String
+  }
+
   type Mutation {
     createTab(input: CreateTabInput): Tab! @requireAuth
+    markTabAsSettled(input: MarkTabAsSettledInput): Tab! @requireAuth
   }
 `
