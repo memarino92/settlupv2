@@ -41,6 +41,17 @@ export const createTab = ({ input }) => {
   })
 }
 
+export const markTabAsSettled = ({ input }) => {
+  db.expenseList.updateMany({
+  where: {
+    tabId: input
+  },
+  data: {
+
+  }
+})
+}
+
 export const Tab = {
   expenseLists: (_obj, { root }: ResolverArgs<ReturnType<typeof tab>>) =>
     db.tab.findUnique({ where: { id: root.id } }).expenseLists(),

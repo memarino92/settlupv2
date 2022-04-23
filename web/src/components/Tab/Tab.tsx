@@ -1,5 +1,14 @@
 import ListCard from '../ListCard/ListCard'
 import ResultCard from '../ResultCard/ResultCard'
+import { useMutation } from '@redwoodjs/web'
+
+const MARK_TAB_AS_SETTLED = gql`
+  mutation MarkTabAsSettledMutaion($input: MarkTabAsSettledInput!) {
+    markTabAsSettled(input: $input) {
+      id
+    }
+  }
+`
 
 const Tab = ({ tab }) => {
   const { expenseLists } = tab
@@ -15,6 +24,19 @@ const Tab = ({ tab }) => {
         0
       )
     : 0
+
+  const [markTabAsSettled] = useMutation(MARK_TAB_AS_SETTLED)
+
+  const handleMarkTabAsSettled = () => {
+    markTabAsSettled({
+      variables: {
+        input: {
+          id: tab.id,
+        },
+      },
+    })
+  }
+
   return (
     <div className="card flex justify-center items-center p-4">
       <div className="card-title m-4">
@@ -25,13 +47,14 @@ const Tab = ({ tab }) => {
         <ListCard expenseList={expenseLists[0]} total={totalOne} />
         <ListCard expenseList={expenseLists[1]} total={totalTwo} />
       </div>
-      <div className="flex w-100 justify-center align-middle">
+      <div className="flex flex-col w-100 justify-center align-middle">
         <ResultCard
           totalOne={totalOne}
           totalTwo={totalTwo}
           expenseListOneName={expenseLists[0].name}
           expenseListTwoName={expenseLists[1].name}
         />
+        <button className='btn btn-secondary' onClick={handleMarkTabAsSettled}>Mark as Settled</button>
       </div>
     </div>
   )
