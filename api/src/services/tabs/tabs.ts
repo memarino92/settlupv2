@@ -42,29 +42,17 @@ export const createTab = ({ input }) => {
 }
 
 export const markTabAsSettled = ({ input }) => {
-  db.expense.updateMany({
+  return db.expense.updateMany({
     where: {
-      isSettled: false,
-      AND: {
-        expenseList: {
-          tab: {
-            id: {
-              equals: input.id
-            }
-          }
+      expenseList: {
+        tabId: {
+          equals: input.id
         }
       }
     },
-
     data: {
-      isSettled: true,
-    },
-  })
-
-  return db.tab.findUnique({
-    where: {
-      id: input.id,
-    },
+      isSettled: true
+    }
   })
 }
 
