@@ -5,7 +5,7 @@ import { useMutation } from '@redwoodjs/web'
 const MARK_TAB_AS_SETTLED = gql`
   mutation MarkTabAsSettledMutaion($input: MarkTabAsSettledInput!) {
     markTabAsSettled(input: $input) {
-      id
+      count
     }
   }
 `
