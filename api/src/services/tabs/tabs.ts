@@ -48,6 +48,9 @@ export const markTabAsSettled = ({ input }) => {
         tabId: {
           equals: input.id
         }
+      },
+      AND : {
+        isSettled: false
       }
     },
     data: {
