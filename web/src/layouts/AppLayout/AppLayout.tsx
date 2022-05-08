@@ -1,6 +1,7 @@
 import { MetaTags } from '@redwoodjs/web'
 import { Link, routes } from '@redwoodjs/router'
 import { useAuth } from '@redwoodjs/auth'
+import { Toaster } from '@redwoodjs/web/dist/toast'
 
 type AppLayoutProps = {
   children?: React.ReactNode
@@ -16,6 +17,9 @@ const AppLayout = ({ children }: AppLayoutProps) => {
         /* you should un-comment description and add a unique description, 155 characters or less
   You can look at this documentation for best practices : https://developers.google.com/search/docs/advanced/appearance/good-titles-snippets */
       />
+
+      <Toaster />
+
       <header className="navbar bg-primary text-neutral-content rounded-b">
         <h1 className="prose prose-a:no-underline navbar-start">
           <Link className="text-4xl font-bold" to={routes.home()}>

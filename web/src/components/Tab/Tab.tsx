@@ -1,6 +1,8 @@
 import ListCard from '../ListCard/ListCard'
 import ResultCard from '../ResultCard/ResultCard'
 import { useMutation } from '@redwoodjs/web'
+import { toast } from '@redwoodjs/web/dist/toast'
+import { QUERY as TabsQuery } from '../TabsCell/TabsCell'
 
 const MARK_TAB_AS_SETTLED = gql`
   mutation MarkTabAsSettledMutaion($input: MarkTabAsSettledInput!) {
@@ -25,7 +27,15 @@ const Tab = ({ tab }) => {
       )
     : 0
 
-  const [markTabAsSettled] = useMutation(MARK_TAB_AS_SETTLED)
+  const [markTabAsSettled] = useMutation(MARK_TAB_AS_SETTLED, {
+    refetchQueries: [TabsQuery],
+    onCompleted: () => {
+      toast.success('Tab Marked as Settled')
+    },
+    onError: (error) => {
+      toast.error(error.message)
+    },
+  })
 
   const handleMarkTabAsSettled = () => {
     markTabAsSettled({
