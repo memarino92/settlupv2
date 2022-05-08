@@ -47,7 +47,7 @@ const Tab = ({ tab }) => {
     })
   }
 
-  return (
+  return (<>
     <div className="card flex justify-center items-center p-4">
       <div className="card-title m-4">
         <h2 className="prose text-2xl">{tab.name}</h2>
@@ -64,10 +64,23 @@ const Tab = ({ tab }) => {
           expenseListOneName={expenseLists[0].name}
           expenseListTwoName={expenseLists[1].name}
         />
-        <button className='btn btn-secondary' onClick={handleMarkTabAsSettled}>Mark as Settled</button>
+        <label htmlFor="confirmation-modal" className="btn btn-secondary modal-button">Mark as Settled</label>
       </div>
     </div>
-  )
+
+<input type="checkbox" id="confirmation-modal" className="modal-toggle" />
+<div className="modal">
+  <div className="modal-box">
+    <h3 className="font-bold text-lg">Really mark tab as settled?</h3>
+    <p className="py-4">This action can not be undone!</p>
+    <div className="modal-action">
+      <label htmlFor="confirmation-modal" className="btn btn-secondary">No, nevermind</label>
+      <label htmlFor="confirmation-modal" className="btn btn-secondary" onClick={handleMarkTabAsSettled}>Yes, really mark tab as settled</label>
+    </div>
+  </div>
+</div>
+</>
+)
 }
 
 export default Tab
