@@ -1,7 +1,10 @@
 import Expense from 'src/components/Expense/Expense'
 
-const ExpenseList = ({ expenseList }) => {
-  const { expenses } = expenseList
+const ExpenseList = ({ expenseList, hideSettledExpenses }) => {
+  let { expenses } = expenseList
+  if (hideSettledExpenses) {
+    expenses = expenses.filter((expense) => !expense.isSettled)
+  }
   return (
     <div className="overflow-x-auto">
       <table className="table w-full table-zebra">
